@@ -14,6 +14,4 @@
  * limitations under the License.
  */
 
-pub use repository;
-
 pub mod user;

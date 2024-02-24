@@ -14,6 +14,5 @@
  * limitations under the License.
  */
 
-pub use repository;
-
-pub mod user;
+pub mod dto;
+pub mod entity;

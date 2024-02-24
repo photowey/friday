@@ -14,6 +14,23 @@
  * limitations under the License.
  */
 
-pub use repository;
+#[cfg(test)]
+mod tests {
+    use apiserver::*;
 
-pub mod user;
+    #[test]
+    fn test_save_user() {
+        let user_id = 1708796368_000_000_000;
+        let user = controller::user::save_user(user_id);
+
+        assert_eq!(user_id, user.get_id())
+    }
+
+    #[test]
+    fn test_select_user() {
+        let user_id = 1708796368_000_000_000;
+        let user = controller::user::select_user(user_id);
+
+        assert_eq!(user_id, user.get_id())
+    }
+}

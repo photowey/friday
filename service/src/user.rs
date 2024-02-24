@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+//! user service
+
 pub use repository;
 
-pub mod user;
+pub fn create_user(id: u64) -> repository::user::entity::user::User {
+    let user_entity = repository::user::entity::create_user(id);
+    repository::user::save_user(user_entity)
+}
+
+pub fn select_one(id: u64) -> repository::user::dto::user::UserDTO {
+    repository::user::find_one(id)
+}

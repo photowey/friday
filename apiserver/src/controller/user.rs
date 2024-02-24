@@ -14,6 +14,20 @@
  * limitations under the License.
  */
 
-pub use repository;
+//! user controller
 
-pub mod user;
+use service::{
+    self,
+    repository::{
+        self,
+        abi::types::{dto, entity},
+    },
+};
+
+pub fn save_user(id: u64) -> entity::user::User {
+    service::user::create_user(id)
+}
+
+pub fn select_user(id: u64) -> dto::user::UserDTO {
+    repository::user::find_one(id)
+}

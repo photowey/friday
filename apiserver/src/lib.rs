@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
-pub use repository;
+pub use service;
 
-pub mod user;
+pub mod controller;
+
+pub fn run() {
+    let user_id = 1708796368_000_000_000;
+    let user_entity = controller::user::save_user(user_id);
+    println!("The user.entity info is:{:#?}", user_entity);
+
+    let user_dto = controller::user::select_user(user_entity.get_id());
+    println!("The user.dto info is:{:#?}", user_dto);
+}

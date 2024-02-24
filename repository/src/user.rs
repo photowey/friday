@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
-pub use repository;
+//! user repository
 
-pub mod user;
+pub use abi::types::dto;
+pub use abi::types::entity;
+
+pub fn save_user(image: entity::user::User) -> entity::user::User {
+    return image;
+}
+
+pub fn find_one(id: u64) -> dto::user::UserDTO {
+    return dto::create_user_dto(id);
+}

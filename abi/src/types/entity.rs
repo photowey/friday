@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
-pub use repository;
-
 pub mod user;
+
+pub fn create_user(id: u64) -> user::User {
+    user::User::new(id)
+}

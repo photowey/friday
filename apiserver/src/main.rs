@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+use apiserver::run;
+
+#[cfg(test)]
+mod tests;
+
 fn main() {
-    println!("Hello, world!");
+    run();
 }

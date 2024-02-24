@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
-pub use repository;
-
 pub mod user;
+
+pub fn create_user_dto(id: u64) -> user::UserDTO {
+    user::UserDTO::new(id)
+}
