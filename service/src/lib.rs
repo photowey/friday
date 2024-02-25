@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-use rocket::local::blocking::Client;
+pub use repository;
 
-#[test]
-fn test_hello_world() {
-    let client = Client::tracked(super::rocket_setup()).unwrap();
-    let response = client.get("/hello/world").dispatch();
-    assert_eq!(response.into_string(), Some("Hello, world!".into()));
-}
+pub mod user;
