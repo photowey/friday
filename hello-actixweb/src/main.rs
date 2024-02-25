@@ -14,44 +14,28 @@
  * limitations under the License.
  */
 
-#[macro_use]
-extern crate rocket;
-
-use rocket::{Build, Rocket};
-
 // ----------------------------------------------------------------
+
+use actix_web::{web, App, HttpServer};
+
+mod router;
 
 #[cfg(test)]
 mod tests;
 
 // ----------------------------------------------------------------
 
-// Try visiting:
-// http://127.0.0.1:8000/hello/world
-#[get("/world")]
-fn world() -> &'static str {
-    "Hello, world!"
-}
-
 // ----------------------------------------------------------------
 
-/*
-
-#[launch]
-fn rocket() -> _ {
-    rocket::build()
-        .mount("/hello", routes![world])
-}
-
-*/
-
-fn rocket_setup() -> Rocket<Build> {
-    rocket::build().mount("/hello", routes![world])
-}
-
-#[rocket::main]
-async fn main() -> Result<(), rocket::Error> {
-    let _ = rocket_setup().launch().await?;
-
-    Ok(())
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new()
+            .service(router::hello)
+            .service(router::echo)
+            .route("/hey", web::get().to(router::manual_hello))
+    })
+    .bind(("127.0.0.1", 8080))?
+    .run()
+    .await
 }

@@ -14,11 +14,33 @@
  * limitations under the License.
  */
 
-use rocket::local::blocking::Client;
+// ----------------------------------------------------------------
 
-#[test]
-fn test_hello_world() {
-    let client = Client::tracked(super::rocket_setup()).unwrap();
-    let response = client.get("/hello/world").dispatch();
-    assert_eq!(response.into_string(), Some("Hello, world!".into()));
+#[macro_use]
+extern crate rocket;
+
+// ----------------------------------------------------------------
+
+mod router;
+
+#[cfg(test)]
+mod tests;
+
+// ----------------------------------------------------------------
+
+/*
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount("/hello-rocket", routes![world])
+}
+
+*/
+
+#[rocket::main]
+async fn main() -> Result<(), rocket::Error> {
+    let _ = router::rocket_setup().launch().await?;
+
+    Ok(())
 }
