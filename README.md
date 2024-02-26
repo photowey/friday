@@ -1,6 +1,6 @@
 # `friday`
 
-A simple Web `MVC` project developed with `Rust`
+A simple `web` `MVC` project developed with `Rust`
 
 
 ## `structure`
