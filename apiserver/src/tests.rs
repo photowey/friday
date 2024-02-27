@@ -21,7 +21,7 @@ mod tests {
     #[test]
     fn test_save_user() {
         let user_id = 1708796368_000_000_000;
-        let user = controller::user::save_user(user_id);
+        let user = controller::user_controller::save_user(user_id);
 
         assert_eq!(user_id, user.get_id())
     }
@@ -29,7 +29,7 @@ mod tests {
     #[test]
     fn test_select_user() {
         let user_id = 1708796368_000_000_000;
-        let user = controller::user::select_user(user_id);
+        let user = controller::user_controller::select_user(user_id);
 
         assert_eq!(user_id, user.get_id())
     }

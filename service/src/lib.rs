@@ -16,4 +16,4 @@
 
 pub use repository;
 
-pub mod user;
+pub mod user_service;

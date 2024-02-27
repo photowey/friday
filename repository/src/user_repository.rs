@@ -14,20 +14,15 @@
  * limitations under the License.
  */
 
-//! user controller
+//! user repository
 
-use service::{
-    self,
-    repository::{
-        self,
-        abi::types::{dto, entity},
-    },
-};
+pub use abi::types::dto;
+pub use abi::types::entity;
 
-pub fn save_user(id: u64) -> entity::user::User {
-    service::user::create_user(id)
+pub fn save_user(image: entity::user::User) -> entity::user::User {
+    return image;
 }
 
-pub fn select_user(id: u64) -> dto::user::UserDTO {
-    repository::user::find_one(id)
+pub fn find_one(id: u64) -> dto::user_dto::UserDTO {
+    return dto::create_user_dto(id);
 }

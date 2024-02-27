@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-pub mod user;
+pub mod user_dto;
 
-pub fn create_user_dto(id: u64) -> user::UserDTO {
-    user::UserDTO::new(id)
+pub fn create_user_dto(id: u64) -> user_dto::UserDTO {
+    user_dto::UserDTO::new(id)
 }

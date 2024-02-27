@@ -19,4 +19,4 @@ pub use abi::{
     types::{dto, entity},
 };
 
-pub mod user;
+pub mod user_repository;

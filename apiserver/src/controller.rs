@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-pub mod user;
+pub mod user_controller;
