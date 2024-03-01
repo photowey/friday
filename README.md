@@ -1,6 +1,6 @@
 # `friday`
 
-A simple `web` `MVC` project developed with `Rust`
+A simple `web` project developed with `Rust`
 
 
 ## `structure`
@@ -9,8 +9,7 @@ A simple `web` `MVC` project developed with `Rust`
 friday
 ├── abi             // lib and models
 ├── apiserver       // controller
-├── hello-actixweb  // sample module
-├── hello-rocket    // sample module
+├── hello-xxx       // sample modules
 ├── repository      // repository
 ├── service         // service
 ```
