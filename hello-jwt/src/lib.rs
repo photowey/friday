@@ -35,17 +35,45 @@
 ///   "exp": 1740798671000
 /// }
 /// ```
+#[derive(Debug)]
 pub struct Claims {
     sub: String,
-    aut: String,
-    iss: String,
-    jti: String,
-    aud: String,
-    xid: String,
-    xit: String,
-    xoc: String,
-    role: Vec<String>,
-    scope: Vec<String>,
-    iat: u64,
-    exp: u64,
+    aut: Option<String>,
+    iss: Option<String>,
+    jti: Option<String>,
+    aud: Option<String>,
+    xid: Option<String>,
+    xit: Option<String>,
+    xoc: Option<String>,
+    role: Option<Vec<String>>,
+    scope: Option<Vec<String>>,
+    /// Unix timestamp (milliseconds since 1970/1/1T00:00:00T)
+    pub iat: u64,
+    pub exp: u64,
+}
+
+impl Claims {
+    pub fn new(sub: String, iat: u64, exp: u64) -> Self {
+        Self {
+            sub,
+            aut: None,
+            iss: None,
+            jti: None,
+            aud: None,
+            xid: None,
+            xit: None,
+            xoc: None,
+            role: Some(Vec::new()),
+            scope: Some(Vec::new()),
+            iat,
+            exp,
+        }
+    }
+}
+
+impl<'a> Claims {
+    /// sub getter
+    pub fn get_sub(&'a self) -> &'a str {
+        self.sub.as_str()
+    }
 }

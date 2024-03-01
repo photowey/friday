@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#[cfg(test)]
+mod tests;
+
 fn main() {
     println!("Hello, jwt!");
 }
